@@ -1,0 +1,121 @@
+﻿@using EmployeeData.Models
+@model EmployeeData.Models.Employee
+
+@{
+    ViewBag.Title = "InputData";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<center>
+    <h2>Get Employee Details</h2>
+    <form action="/GetEmployee/InputData" method="post">
+        <table>
+            <tbody>
+                <tr>
+                    <td>Employee ID</td>
+                    <td>
+                        &nbsp;&nbsp;&nbsp;@Html.TextBox("EmployeeID", null)
+                        @if (!ViewData.ModelState.IsValid)
+                        {
+                            @Html.ValidationMessage("EmployeeID")
+                        }
+                    </td>
+                </tr>
+                <tr>
+                    <td>First Name</td>
+                    <td>
+                        &nbsp;&nbsp;&nbsp;@Html.TextBox("FirstName", null)
+                        @if (!ViewData.ModelState.IsValid)
+                        {
+                            @Html.ValidationMessage("FirstName")
+                        }
+                    </td>
+                </tr>
+                <tr>
+                    <td>Middle Name</td>
+                    <td>
+                        &nbsp;&nbsp;&nbsp;@Html.TextBox("MiddleName", null)
+                        @if (!ViewData.ModelState.IsValid)
+                        {
+                            @Html.ValidationMessage("MiddleName")
+                        }
+                    </td>
+                </tr>
+                <tr>
+                    <td>Last Name</td>
+                    <td>
+                        &nbsp;&nbsp;&nbsp;@Html.TextBox("LastName", null)
+                        @if (!ViewData.ModelState.IsValid)
+                        {
+                            @Html.ValidationMessage("LastName");
+                        }
+                    </td>
+                </tr>
+                <tr>
+                    <td>Gender</td>
+                    <td>
+                        &nbsp;&nbsp;&nbsp;@Html.RadioButton("Gender", "Male")&nbsp;&nbsp;Male&nbsp;&nbsp;&nbsp;@Html.RadioButton("Gender", "Female")&nbsp;&nbsp;&nbsp;Female&nbsp;&nbsp;&nbsp;
+                        @if (!ViewData.ModelState.IsValid)
+                        {
+                            @Html.ValidationMessage("Gender");
+                        }
+                    </td>
+                </tr>
+                <tr>
+                    <td>Address</td>
+                    <td>
+                        &nbsp;&nbsp;&nbsp;@Html.TextBox("Address", null)
+                        @if (!ViewData.ModelState.IsValid)
+                        {
+                            @Html.ValidationMessage("Address");
+                        }
+                    </td>
+                </tr>
+                <tr>
+                    <td>City</td>
+                    <td>
+                        &nbsp;&nbsp;&nbsp;@Html.DropDownList("City", new SelectList(Enum.GetValues(typeof(City))), "Select City")
+                        @if (!ViewData.ModelState.IsValid)
+                        {
+                            @Html.ValidationMessage("City");
+                        }
+                    </td>
+                </tr>
+                <tr>
+                    <td>State</td>
+                    <td>
+                        &nbsp;&nbsp;&nbsp;@Html.DropDownList("State", new SelectList(Enum.GetValues(typeof(State))), "Select State")
+                        @if (!ViewData.ModelState.IsValid)
+                        {
+                            @Html.ValidationMessage("State");
+                        }
+                    </td>
+                </tr>
+                <tr>
+                    <td>Country</td>
+                    <td>
+                        &nbsp;&nbsp;&nbsp;@Html.DropDownList("Country", new SelectList(Enum.GetValues(typeof(Country))), "Select Country")
+                        @if (!ViewData.ModelState.IsValid)
+                        {
+                            @Html.ValidationMessage("Country");
+                        }
+                    </td>
+                </tr>
+                <tr>
+                    <td>Mobile Number</td>
+                    <td>
+                        &nbsp;&nbsp;&nbsp;<input type="text" name="Mobile">
+                        @if (!ViewData.ModelState.IsValid)
+                        {
+                            @Html.ValidationMessage("Mobile");
+                        }
+                    </td>
+                </tr>
+                <tr>
+                    <td rowspan="2"><center><input type="submit" name="submit" value="Create"></center></td>
+                </tr>
+            </tbody>
+        </table>
+    </form>       
+</center>
+

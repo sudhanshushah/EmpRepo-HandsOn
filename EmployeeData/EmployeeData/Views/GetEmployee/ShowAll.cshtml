@@ -1,0 +1,80 @@
+﻿@using EmployeeData.Models
+@model IEnumerable<EmployeeData.Models.Employee>
+
+@{
+    ViewBag.Title = "ShowAll";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ShowAll</h2>
+
+<div>
+    <h4>Employee</h4>
+    <hr />
+    <table>
+        <thead>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </thead>
+        <thead>
+            @Html.DisplayNameFor(model => model.MiddleName)
+        </thead>
+        <thead>
+            @Html.DisplayNameFor(model => model.LastName)
+        </thead>
+        <thead>
+            @Html.DisplayNameFor(model => model.Gender)
+        </thead>
+       <thead>
+            @Html.DisplayNameFor(model => model.Address)
+        </thead>
+       <thead>
+            @Html.DisplayNameFor(model => model.City)
+        </thead>
+       <thead>
+            @Html.DisplayNameFor(model => model.State)
+        </thead>
+       <thead>
+            @Html.DisplayNameFor(model => model.Country)
+        </thead>
+       <thead>
+            @Html.DisplayNameFor(model => model.Mobile)
+        </thead>
+        <thead></thead>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MiddleName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.City)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.State)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Country)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mobile)
+            </td>
+            </tr>
+        }
+    </table>
+</div>
+<p>
+    @Html.ActionLink("Back to Contents", "Contents")
+</p>
